@@ -11,9 +11,14 @@ void LedDriver_Destroy(void)
 {
 }
 
+static uint16_t convertLedNumberToBit(int ledNumber)
+{
+    return (uint16_t)(1 << (ledNumber - 1));
+}
+
 void LedDriver_TurnOn(int ledNumber)
 {
-    *ledsAddress |= (uint16_t)(1 << (ledNumber - 1));
+    *ledsAddress |= convertLedNumberToBit(ledNumber);
 }
 
 void LedDriver_TurnOff(int ledNumber)
