@@ -21,20 +21,25 @@ static uint16_t convertLedNumberToBit(int ledNumber)
     return (uint16_t)(1 << (ledNumber - 1));
 }
 
+static void updateHardware(void)
+{
+    *ledsAddress = ledsImage;
+}
+
 void LedDriver_TurnOn(int ledNumber)
 {
     ledsImage |= convertLedNumberToBit(ledNumber);
-    *ledsAddress = ledsImage;
+    updateHardware();
 }
 
 void LedDriver_TurnOff(int ledNumber)
 {
     ledsImage &= (uint16_t)~(convertLedNumberToBit(ledNumber));
-    *ledsAddress = ledsImage;
+    updateHardware();
 }
 
 void LedDriver_TurnAllOn(void)
 {
     ledsImage = ALL_LEDS_ON;
-    *ledsAddress = ledsImage;
+    updateHardware();
 }
