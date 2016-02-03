@@ -28,12 +28,18 @@ static void updateHardware(void)
 
 void LedDriver_TurnOn(int ledNumber)
 {
+    if (ledNumber <= 0 || ledNumber > 16)
+        return;
+
     ledsImage |= convertLedNumberToBit(ledNumber);
     updateHardware();
 }
 
 void LedDriver_TurnOff(int ledNumber)
 {
+    if (ledNumber <= 0 || ledNumber > 16)
+        return;
+
     ledsImage &= (uint16_t)~(convertLedNumberToBit(ledNumber));
     updateHardware();
 }

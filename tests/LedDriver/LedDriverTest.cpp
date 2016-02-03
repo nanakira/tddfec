@@ -67,6 +67,25 @@ TEST(LedDriver, UpperAndLowerBounds)
     LONGS_EQUAL(0x8001, virtualLeds);
 }
 
+TEST(LedDriver, OutOfBoundsTurnOnDoesNoHarm)
+{
+    LedDriver_TurnOn(-1);
+    LedDriver_TurnOn(0);
+    LedDriver_TurnOn(17);
+    LedDriver_TurnOn(3141);
+    LONGS_EQUAL(0, virtualLeds);
+}
+
+TEST(LedDriver, OutOfBoundsTurnOffDoesNoHarm)
+{
+    LedDriver_TurnAllOn();
+    LedDriver_TurnOff(-1);
+    LedDriver_TurnOff(0);
+    LedDriver_TurnOff(17);
+    LedDriver_TurnOff(3141);
+    LONGS_EQUAL(0xffff, virtualLeds);
+}
+
 TEST(LedDriver, AllOn)
 {
     LedDriver_TurnAllOn();
