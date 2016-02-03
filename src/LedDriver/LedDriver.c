@@ -1,10 +1,12 @@
 #include "LedDriver.h"
 
+enum {ALL_LEDS_OFF = 0, ALL_LEDS_ON = 0xffff};
+
 static uint16_t * ledsAddress;
 void LedDriver_Create(uint16_t * address)
 {
     ledsAddress = address;
-    *ledsAddress = 0;
+    *ledsAddress = ALL_LEDS_OFF;
 }
 
 void LedDriver_Destroy(void)
@@ -23,10 +25,10 @@ void LedDriver_TurnOn(int ledNumber)
 
 void LedDriver_TurnOff(int ledNumber)
 {
-    *ledsAddress = 0;
+    *ledsAddress = ALL_LEDS_OFF;
 }
 
 void LedDriver_TurnAllOn(void)
 {
-    *ledsAddress = 0xffff;
+    *ledsAddress = ALL_LEDS_ON;
 }
