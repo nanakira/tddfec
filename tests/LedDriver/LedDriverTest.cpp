@@ -93,6 +93,19 @@ TEST(LedDriver, OutOfBoundsProducesRuntimeError)
     STRCMP_EQUAL("LED Driver: out-of-bounds LED", RuntimeErrorStub_GetLastError());
 }
 
+TEST(LedDriver, IsOn)
+{
+    CHECK_EQUAL(FALSE, LedDriver_IsOn(1));
+    LedDriver_TurnOn(1);
+    CHECK_EQUAL(TRUE, LedDriver_IsOn(1));
+}
+
+TEST(LedDriver, OutOfBoundsLedsAreAlwaysOff)
+{
+    CHECK_EQUAL(FALSE, LedDriver_IsOn(0));
+    CHECK_EQUAL(FALSE, LedDriver_IsOn(17));
+}
+
 TEST(LedDriver, AllOn)
 {
     LedDriver_TurnAllOn();
