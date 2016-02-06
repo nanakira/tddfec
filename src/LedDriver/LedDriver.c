@@ -39,13 +39,23 @@ static void updateHardware(void)
     *ledsAddress = ledsImage;
 }
 
+static void setLedImageBit(int ledNumber)
+{
+    ledsImage |= convertLedNumberToBit(ledNumber);
+}
+
 void LedDriver_TurnOn(int ledNumber)
 {
     if (IsLedOutOfBounds(ledNumber))
         return;
 
-    ledsImage |= convertLedNumberToBit(ledNumber);
+    setLedImageBit(ledNumber);
     updateHardware();
+}
+
+static void clearLedImageBit(int ledNumber)
+{
+    ledsImage &= (uint16_t)~convertLedNumberToBit(ledNumber);
 }
 
 void LedDriver_TurnOff(int ledNumber)
@@ -53,7 +63,7 @@ void LedDriver_TurnOff(int ledNumber)
     if (IsLedOutOfBounds(ledNumber))
         return;
 
-    ledsImage &= (uint16_t)~(convertLedNumberToBit(ledNumber));
+    clearLedImageBit(ledNumber);
     updateHardware();
 }
 
