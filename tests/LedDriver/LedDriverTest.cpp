@@ -100,8 +100,17 @@ TEST(LedDriver, IsOn)
     CHECK_EQUAL(TRUE, LedDriver_IsOn(1));
 }
 
+TEST(LedDriver, IsOff)
+{
+    CHECK_EQUAL(TRUE, LedDriver_IsOff(12));
+    LedDriver_TurnOn(12);
+    CHECK_EQUAL(FALSE, LedDriver_IsOff(12));
+}
+
 TEST(LedDriver, OutOfBoundsLedsAreAlwaysOff)
 {
+    CHECK_EQUAL(TRUE, LedDriver_IsOff(0));
+    CHECK_EQUAL(TRUE, LedDriver_IsOff(17));
     CHECK_EQUAL(FALSE, LedDriver_IsOn(0));
     CHECK_EQUAL(FALSE, LedDriver_IsOn(17));
 }
