@@ -17,6 +17,18 @@ void LedDriver_Destroy(void)
 {
 }
 
+enum {FIRST_LED = 1, LAST_LED = 16};
+
+static BOOL IsLedOutOfBounds(int ledNumber)
+{
+    if ((ledNumber < FIRST_LED) || (ledNumber > LAST_LED))
+        {
+            RUNTIME_ERROR("LED Driver: out-of-bounds LED", ledNumber);
+            return TRUE;
+        }
+    return FALSE;
+}
+
 static uint16_t convertLedNumberToBit(int ledNumber)
 {
     return (uint16_t)(1 << (ledNumber - 1));
@@ -29,11 +41,8 @@ static void updateHardware(void)
 
 void LedDriver_TurnOn(int ledNumber)
 {
-    if (ledNumber <= 0 || ledNumber > 16)
-    {
-        RUNTIME_ERROR("LED Driver: out-of-bounds LED", ledNumber);
+    if (IsLedOutOfBounds(ledNumber))
         return;
-    }
 
     ledsImage |= convertLedNumberToBit(ledNumber);
     updateHardware();
@@ -41,11 +50,8 @@ void LedDriver_TurnOn(int ledNumber)
 
 void LedDriver_TurnOff(int ledNumber)
 {
-    if (ledNumber <= 0 || ledNumber > 16)
-    {
-        RUNTIME_ERROR("LED Driver: out-of-bounds LED", ledNumber);
+    if (IsLedOutOfBounds(ledNumber))
         return;
-    }
 
     ledsImage &= (uint16_t)~(convertLedNumberToBit(ledNumber));
     updateHardware();
