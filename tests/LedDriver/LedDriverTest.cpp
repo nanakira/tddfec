@@ -128,3 +128,10 @@ TEST(LedDriver, AllOn)
     LedDriver_TurnAllOn();
     LONGS_EQUAL(0xffff, virtualLeds);
 }
+
+TEST(LedDriver, AllOff)
+{
+    LedDriver_TurnAllOn();
+    LedDriver_TurnAllOff();
+    LONGS_EQUAL(0, virtualLeds);
+}
