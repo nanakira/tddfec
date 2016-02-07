@@ -30,4 +30,9 @@
 
 #include "TimeService.h"
 
+typedef enum  {
+    NONE=-1, EVERYDAY=10, WEEKDAY, WEEKEND,
+    SUNDAY=1, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
+} Day;
+
 #endif  /* D_LightScheduler_H */
