@@ -25,18 +25,14 @@
 /*- ------------------------------------------------------------------ -*/
 
 
-#ifndef D_LightScheduler_H
-#define D_LightScheduler_H
+#ifndef D_FakeTimeService_H
+#define D_FakeTimeService_H
 
 #include "TimeService.h"
 
-typedef enum  {
-    NONE=-1, EVERYDAY=10, WEEKDAY, WEEKEND,
-    SUNDAY=1, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
-} Day;
+enum {TIME_UNKNOWN = -1};
 
-void LightScheduler_Create(void);
-void LightScheduler_Destroy(void);
-void LightScheduler_WakeUp(void);
+void FakeTimeService_SetMinute(int);
+void FakeTimeService_SetDay(int);
 
-#endif  /* D_LightScheduler_H */
+#endif  /* D_FakeTimeService_H */

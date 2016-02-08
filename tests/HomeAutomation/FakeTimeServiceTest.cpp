@@ -21,38 +21,40 @@
 
 extern "C"
 {
-#include "LightScheduler.h"
-#include "LightControllerSpy.h"
 #include "FakeTimeService.h"
+#include "LightScheduler.h"
 }
 
+static int callBackCalled;
 
-TEST_GROUP(LightScheduler)
+TEST_GROUP(FakeTimeService)
 {
     void setup()
     {
-        LightController_Create();
-        LightScheduler_Create();
+      callBackCalled = 0;
+      TimeService_Create();
     }
 
     void teardown()
     {
-        LightController_Destroy();
-        LightScheduler_Destroy();
+       TimeService_Destroy();
     }
 };
 
-TEST(LightScheduler, NoChangeToLightsDuringInitialization)
+TEST(FakeTimeService, Create)
 {
-    LONGS_EQUAL(LIGHT_ID_UNKNOWN, LightControllerSpy_GetLastId());
-    LONGS_EQUAL(LIGHT_STATE_UNKNOWN, LightControllerSpy_GetLastState());
+    Time time;
+    TimeService_GetTime(&time);
+    LONGS_EQUAL(TIME_UNKNOWN, time.minuteOfDay);
+    LONGS_EQUAL(TIME_UNKNOWN, time.dayOfWeek);
 }
 
-TEST(LightScheduler, NoScheduleNothingHappens)
+TEST(FakeTimeService, Set)
 {
-    FakeTimeService_SetDay(MONDAY);
-    FakeTimeService_SetMinute(100);
-    LightScheduler_WakeUp();
-    LONGS_EQUAL(LIGHT_ID_UNKNOWN, LightControllerSpy_GetLastId());
-    LONGS_EQUAL(LIGHT_STATE_UNKNOWN, LightControllerSpy_GetLastState());
+    Time time;
+    FakeTimeService_SetMinute(42);
+    FakeTimeService_SetDay(SATURDAY);
+    TimeService_GetTime(&time);
+    LONGS_EQUAL(42, time.minuteOfDay);
+    LONGS_EQUAL(SATURDAY, time.dayOfWeek);
 }

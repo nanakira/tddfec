@@ -24,19 +24,18 @@
 /*-    www.renaissancesoftware.net james@renaissancesoftware.net       -*/
 /*- ------------------------------------------------------------------ -*/
 
+#include "LightScheduler.h"
+#include "LightController.h"
+//#include "common.h"
 
-#ifndef D_LightScheduler_H
-#define D_LightScheduler_H
+void LightScheduler_Create(void)
+{
+}
 
-#include "TimeService.h"
+void LightScheduler_Destroy(void)
+{
+}
 
-typedef enum  {
-    NONE=-1, EVERYDAY=10, WEEKDAY, WEEKEND,
-    SUNDAY=1, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
-} Day;
-
-void LightScheduler_Create(void);
-void LightScheduler_Destroy(void);
-void LightScheduler_WakeUp(void);
-
-#endif  /* D_LightScheduler_H */
+void LightScheduler_WakeUp(void)
+{
+}

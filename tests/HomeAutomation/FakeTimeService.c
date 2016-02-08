@@ -24,19 +24,32 @@
 /*-    www.renaissancesoftware.net james@renaissancesoftware.net       -*/
 /*- ------------------------------------------------------------------ -*/
 
+#include "FakeTimeService.h"
 
-#ifndef D_LightScheduler_H
-#define D_LightScheduler_H
+static Time fakeTime;
 
-#include "TimeService.h"
+void TimeService_Create(void)
+{
+    fakeTime.minuteOfDay = -1;
+    fakeTime.dayOfWeek = -1;
+}
 
-typedef enum  {
-    NONE=-1, EVERYDAY=10, WEEKDAY, WEEKEND,
-    SUNDAY=1, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
-} Day;
+void TimeService_Destroy(void)
+{
+}
 
-void LightScheduler_Create(void);
-void LightScheduler_Destroy(void);
-void LightScheduler_WakeUp(void);
+void TimeService_GetTime(Time * time)
+{
+    time->minuteOfDay = fakeTime.minuteOfDay;
+    time->dayOfWeek = fakeTime.dayOfWeek;
+}
 
-#endif  /* D_LightScheduler_H */
+void FakeTimeService_SetMinute(int minute)
+{
+    fakeTime.minuteOfDay = minute;
+}
+
+void FakeTimeService_SetDay(int day)
+{
+    fakeTime.dayOfWeek = day;
+}
