@@ -38,4 +38,6 @@ void TimeService_Create(void);
 void TimeService_Destroy(void);
 void TimeService_GetTime(Time *);
 
+typedef void (*WakeUpCallback)(void);
+
 #endif  /* D_TimeService_H */
