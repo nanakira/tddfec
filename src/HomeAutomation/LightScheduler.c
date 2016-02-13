@@ -140,3 +140,18 @@ void LightScheduler_WakeUp(void)
         processEventDueNow(&time, &scheduledEvents[i]);
     }
 }
+
+void LightScheduler_ScheduleRemove(int id, Day day, int minute)
+{
+    int i;
+
+    for (i = 0; i < MAX_EVENTS; i++)
+    {
+        if (scheduledEvents[i].id == id
+         && scheduledEvents[i].day == day
+         && scheduledEvents[i].minuteOfDay == minute)
+         {
+             scheduledEvents[i].id = UNUSED;
+         }
+    }
+}

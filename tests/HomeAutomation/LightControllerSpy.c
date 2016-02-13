@@ -26,6 +26,7 @@
 
 
 #include "LightControllerSpy.h"
+#include "memory.h"
 
 static int lastId;
 static int lastState;
@@ -35,6 +36,7 @@ void LightController_Create(void)
 {
     lastId = LIGHT_ID_UNKNOWN;
     lastState = LIGHT_STATE_UNKNOWN;
+    memset(lights, LIGHT_STATE_UNKNOWN, sizeof lights);
 }
 
 void LightController_Destroy(void)
