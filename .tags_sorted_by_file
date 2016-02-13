@@ -1,0 +1,169 @@
+D_LightController_H	include\HomeAutomation\LightController.h	29;"	d
+MAX_LIGHTS	include\HomeAutomation\LightController.h	/^enum { MAX_LIGHTS = 32 };$/;"	e	enum:__anon1
+D_LightScheduler_H	include\HomeAutomation\LightScheduler.h	29;"	d
+Day	include\HomeAutomation\LightScheduler.h	/^} Day;$/;"	t	typeref:enum:__anon2
+EVERYDAY	include\HomeAutomation\LightScheduler.h	/^    NONE=-1, EVERYDAY=10, WEEKDAY, WEEKEND,$/;"	e	enum:__anon2
+FRIDAY	include\HomeAutomation\LightScheduler.h	/^    SUNDAY=1, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY$/;"	e	enum:__anon2
+LS_ID_OUT_OF_BOUNDS	include\HomeAutomation\LightScheduler.h	/^enum { LS_OK, LS_TOO_MANY_EVENTS, LS_ID_OUT_OF_BOUNDS };$/;"	e	enum:__anon3
+LS_OK	include\HomeAutomation\LightScheduler.h	/^enum { LS_OK, LS_TOO_MANY_EVENTS, LS_ID_OUT_OF_BOUNDS };$/;"	e	enum:__anon3
+LS_TOO_MANY_EVENTS	include\HomeAutomation\LightScheduler.h	/^enum { LS_OK, LS_TOO_MANY_EVENTS, LS_ID_OUT_OF_BOUNDS };$/;"	e	enum:__anon3
+MONDAY	include\HomeAutomation\LightScheduler.h	/^    SUNDAY=1, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY$/;"	e	enum:__anon2
+NONE	include\HomeAutomation\LightScheduler.h	/^    NONE=-1, EVERYDAY=10, WEEKDAY, WEEKEND,$/;"	e	enum:__anon2
+SATURDAY	include\HomeAutomation\LightScheduler.h	/^    SUNDAY=1, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY$/;"	e	enum:__anon2
+SUNDAY	include\HomeAutomation\LightScheduler.h	/^    SUNDAY=1, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY$/;"	e	enum:__anon2
+THURSDAY	include\HomeAutomation\LightScheduler.h	/^    SUNDAY=1, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY$/;"	e	enum:__anon2
+TUESDAY	include\HomeAutomation\LightScheduler.h	/^    SUNDAY=1, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY$/;"	e	enum:__anon2
+WEDNESDAY	include\HomeAutomation\LightScheduler.h	/^    SUNDAY=1, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY$/;"	e	enum:__anon2
+WEEKDAY	include\HomeAutomation\LightScheduler.h	/^    NONE=-1, EVERYDAY=10, WEEKDAY, WEEKEND,$/;"	e	enum:__anon2
+WEEKEND	include\HomeAutomation\LightScheduler.h	/^    NONE=-1, EVERYDAY=10, WEEKDAY, WEEKEND,$/;"	e	enum:__anon2
+D_TimeService_H	include\HomeAutomation\TimeService.h	29;"	d
+Time	include\HomeAutomation\TimeService.h	/^typedef struct Time$/;"	s
+Time	include\HomeAutomation\TimeService.h	/^} Time;$/;"	t	typeref:struct:Time
+WakeUpCallback	include\HomeAutomation\TimeService.h	/^typedef void (*WakeUpCallback)(void);$/;"	t
+dayOfWeek	include\HomeAutomation\TimeService.h	/^    int dayOfWeek;$/;"	m	struct:Time
+minuteOfDay	include\HomeAutomation\TimeService.h	/^    int minuteOfDay;$/;"	m	struct:Time
+BOOL	include\LedDriver\LedDriver.h	/^typedef int BOOL;$/;"	t
+D_LedDriver_H	include\LedDriver\LedDriver.h	2;"	d
+FALSE	include\LedDriver\LedDriver.h	6;"	d
+TRUE	include\LedDriver\LedDriver.h	5;"	d
+D_RuntimeError_H	include\util\RuntimeError.h	29;"	d
+RUNTIME_ERROR	include\util\RuntimeError.h	34;"	d
+BOOL	include\util\common.h	34;"	d
+D_common_H	include\util\common.h	31;"	d
+FALSE	include\util\common.h	42;"	d
+NULL	include\util\common.h	46;"	d
+TRUE	include\util\common.h	38;"	d
+RuntimeError	mocks\RuntimeErrorStub.c	/^void RuntimeError(const char * m, int p, const char * f, int l)$/;"	f
+RuntimeErrorStub_GetLastError	mocks\RuntimeErrorStub.c	/^const char * RuntimeErrorStub_GetLastError(void)$/;"	f
+RuntimeErrorStub_GetLastParameter	mocks\RuntimeErrorStub.c	/^int RuntimeErrorStub_GetLastParameter(void)$/;"	f
+RuntimeErrorStub_Reset	mocks\RuntimeErrorStub.c	/^void RuntimeErrorStub_Reset(void)$/;"	f
+file	mocks\RuntimeErrorStub.c	/^static const char * file = 0;$/;"	v	file:
+line	mocks\RuntimeErrorStub.c	/^static int line = -1;$/;"	v	file:
+message	mocks\RuntimeErrorStub.c	/^static const char * message = "No Error";$/;"	v	file:
+parameter	mocks\RuntimeErrorStub.c	/^static int parameter = -1;$/;"	v	file:
+D_RuntimeErrorStub_H	mocks\RuntimeErrorStub.h	28;"	d
+DoesLightRespondToday	src\HomeAutomation\LightScheduler.c	/^static int DoesLightRespondToday(Time * time, int reactionDay)$/;"	f	file:
+LightScheduler_Create	src\HomeAutomation\LightScheduler.c	/^void LightScheduler_Create(void)$/;"	f
+LightScheduler_Destroy	src\HomeAutomation\LightScheduler.c	/^void LightScheduler_Destroy(void)$/;"	f
+LightScheduler_ScheduleRemove	src\HomeAutomation\LightScheduler.c	/^void LightScheduler_ScheduleRemove(int id, Day day, int minute)$/;"	f
+LightScheduler_ScheduleTurnOff	src\HomeAutomation\LightScheduler.c	/^int LightScheduler_ScheduleTurnOff(int id, Day day, int minuteOfDay)$/;"	f
+LightScheduler_ScheduleTurnOn	src\HomeAutomation\LightScheduler.c	/^int LightScheduler_ScheduleTurnOn(int id, Day day, int minuteOfDay)$/;"	f
+LightScheduler_WakeUp	src\HomeAutomation\LightScheduler.c	/^void LightScheduler_WakeUp(void)$/;"	f
+MAX_EVENTS	src\HomeAutomation\LightScheduler.c	/^    MAX_EVENTS = 128$/;"	e	enum:__anon4	file:
+ScheduledLightEvent	src\HomeAutomation\LightScheduler.c	/^} ScheduledLightEvent;$/;"	t	typeref:struct:__anon5	file:
+TURN_OFF	src\HomeAutomation\LightScheduler.c	/^    TURN_OFF, TURN_ON,$/;"	e	enum:__anon4	file:
+TURN_ON	src\HomeAutomation\LightScheduler.c	/^    TURN_OFF, TURN_ON,$/;"	e	enum:__anon4	file:
+UNUSED	src\HomeAutomation\LightScheduler.c	/^    UNUSED = -1,$/;"	e	enum:__anon4	file:
+day	src\HomeAutomation\LightScheduler.c	/^    Day day;$/;"	m	struct:__anon5	file:
+event	src\HomeAutomation\LightScheduler.c	/^    int event;$/;"	m	struct:__anon5	file:
+id	src\HomeAutomation\LightScheduler.c	/^    int id;$/;"	m	struct:__anon5	file:
+minuteOfDay	src\HomeAutomation\LightScheduler.c	/^    int minuteOfDay;$/;"	m	struct:__anon5	file:
+operateLight	src\HomeAutomation\LightScheduler.c	/^static void operateLight(ScheduledLightEvent * lightEvent)$/;"	f	file:
+processEventDueNow	src\HomeAutomation\LightScheduler.c	/^static void processEventDueNow(Time * time, ScheduledLightEvent * lightEvent)$/;"	f	file:
+scheduleEvent	src\HomeAutomation\LightScheduler.c	/^static int scheduleEvent(int id, Day day, int minuteOfDay, int event)$/;"	f	file:
+scheduledEvents	src\HomeAutomation\LightScheduler.c	/^static ScheduledLightEvent scheduledEvents[MAX_EVENTS];$/;"	v	file:
+ALL_LEDS_OFF	src\LedDriver\LedDriver.c	/^enum {ALL_LEDS_OFF = 0, ALL_LEDS_ON = 0xffff};$/;"	e	enum:__anon6	file:
+ALL_LEDS_ON	src\LedDriver\LedDriver.c	/^enum {ALL_LEDS_OFF = 0, ALL_LEDS_ON = 0xffff};$/;"	e	enum:__anon6	file:
+FIRST_LED	src\LedDriver\LedDriver.c	/^enum {FIRST_LED = 1, LAST_LED = 16};$/;"	e	enum:__anon7	file:
+IsLedOutOfBounds	src\LedDriver\LedDriver.c	/^static BOOL IsLedOutOfBounds(int ledNumber)$/;"	f	file:
+LAST_LED	src\LedDriver\LedDriver.c	/^enum {FIRST_LED = 1, LAST_LED = 16};$/;"	e	enum:__anon7	file:
+LedDriver_Create	src\LedDriver\LedDriver.c	/^void LedDriver_Create(uint16_t * address)$/;"	f
+LedDriver_Destroy	src\LedDriver\LedDriver.c	/^void LedDriver_Destroy(void)$/;"	f
+LedDriver_IsOff	src\LedDriver\LedDriver.c	/^BOOL LedDriver_IsOff(int ledNumber)$/;"	f
+LedDriver_IsOn	src\LedDriver\LedDriver.c	/^BOOL LedDriver_IsOn(int ledNumber)$/;"	f
+LedDriver_TurnAllOff	src\LedDriver\LedDriver.c	/^void LedDriver_TurnAllOff(void)$/;"	f
+LedDriver_TurnAllOn	src\LedDriver\LedDriver.c	/^void LedDriver_TurnAllOn(void)$/;"	f
+LedDriver_TurnOff	src\LedDriver\LedDriver.c	/^void LedDriver_TurnOff(int ledNumber)$/;"	f
+LedDriver_TurnOn	src\LedDriver\LedDriver.c	/^void LedDriver_TurnOn(int ledNumber)$/;"	f
+clearLedImageBit	src\LedDriver\LedDriver.c	/^static void clearLedImageBit(int ledNumber)$/;"	f	file:
+convertLedNumberToBit	src\LedDriver\LedDriver.c	/^static uint16_t convertLedNumberToBit(int ledNumber)$/;"	f	file:
+ledsAddress	src\LedDriver\LedDriver.c	/^static uint16_t * ledsAddress;$/;"	v	file:
+ledsImage	src\LedDriver\LedDriver.c	/^static uint16_t ledsImage;$/;"	v	file:
+setLedImageBit	src\LedDriver\LedDriver.c	/^static void setLedImageBit(int ledNumber)$/;"	f	file:
+updateHardware	src\LedDriver\LedDriver.c	/^static void updateHardware(void)$/;"	f	file:
+main	tests\AllTests.cpp	/^int main(int ac, char** av)$/;"	f
+FakeTimeService_GetAlarmCallback	tests\HomeAutomation\FakeTimeService.c	/^WakeUpCallback FakeTimeService_GetAlarmCallback(void)$/;"	f
+FakeTimeService_GetAlarmPeriod	tests\HomeAutomation\FakeTimeService.c	/^int FakeTimeService_GetAlarmPeriod(void)$/;"	f
+FakeTimeService_SetDay	tests\HomeAutomation\FakeTimeService.c	/^void FakeTimeService_SetDay(int day)$/;"	f
+FakeTimeService_SetMinute	tests\HomeAutomation\FakeTimeService.c	/^void FakeTimeService_SetMinute(int minute)$/;"	f
+TimeService_CancelPeriodicAlarmInSeconds	tests\HomeAutomation\FakeTimeService.c	/^void TimeService_CancelPeriodicAlarmInSeconds(int seconds, WakeUpCallback cb)$/;"	f
+TimeService_Create	tests\HomeAutomation\FakeTimeService.c	/^void TimeService_Create(void)$/;"	f
+TimeService_Destroy	tests\HomeAutomation\FakeTimeService.c	/^void TimeService_Destroy(void)$/;"	f
+TimeService_GetTime	tests\HomeAutomation\FakeTimeService.c	/^void TimeService_GetTime(Time * time)$/;"	f
+TimeService_SetPeriodicAlarmInSeconds	tests\HomeAutomation\FakeTimeService.c	/^void TimeService_SetPeriodicAlarmInSeconds(int seconds, WakeUpCallback cb)$/;"	f
+callback	tests\HomeAutomation\FakeTimeService.c	/^static WakeUpCallback callback;$/;"	v	file:
+fakeTime	tests\HomeAutomation\FakeTimeService.c	/^static Time fakeTime;$/;"	v	file:
+period	tests\HomeAutomation\FakeTimeService.c	/^static int period;$/;"	v	file:
+D_FakeTimeService_H	tests\HomeAutomation\FakeTimeService.h	29;"	d
+TIME_UNKNOWN	tests\HomeAutomation\FakeTimeService.h	/^enum {TIME_UNKNOWN = -1};$/;"	e	enum:__anon8
+TEST	tests\HomeAutomation\FakeTimeServiceTest.cpp	/^TEST(FakeTimeService, Create)$/;"	f
+TEST	tests\HomeAutomation\FakeTimeServiceTest.cpp	/^TEST(FakeTimeService, Set)$/;"	f
+TEST_GROUP	tests\HomeAutomation\FakeTimeServiceTest.cpp	/^TEST_GROUP(FakeTimeService)$/;"	f
+callBackCalled	tests\HomeAutomation\FakeTimeServiceTest.cpp	/^static int callBackCalled;$/;"	v	file:
+LightControllerSpy_GetLastId	tests\HomeAutomation\LightControllerSpy.c	/^int LightControllerSpy_GetLastId(void)$/;"	f
+LightControllerSpy_GetLastState	tests\HomeAutomation\LightControllerSpy.c	/^int LightControllerSpy_GetLastState(void)$/;"	f
+LightControllerSpy_GetLightState	tests\HomeAutomation\LightControllerSpy.c	/^int LightControllerSpy_GetLightState(int id)$/;"	f
+LightController_Create	tests\HomeAutomation\LightControllerSpy.c	/^void LightController_Create(void)$/;"	f
+LightController_Destroy	tests\HomeAutomation\LightControllerSpy.c	/^void LightController_Destroy(void)$/;"	f
+LightController_Off	tests\HomeAutomation\LightControllerSpy.c	/^void LightController_Off(int id)$/;"	f
+LightController_On	tests\HomeAutomation\LightControllerSpy.c	/^void LightController_On(int id)$/;"	f
+isIdInRange	tests\HomeAutomation\LightControllerSpy.c	/^static int isIdInRange(int id)$/;"	f	file:
+lastId	tests\HomeAutomation\LightControllerSpy.c	/^static int lastId;$/;"	v	file:
+lastState	tests\HomeAutomation\LightControllerSpy.c	/^static int lastState;$/;"	v	file:
+lights	tests\HomeAutomation\LightControllerSpy.c	/^static int lights[MAX_LIGHTS];$/;"	v	file:
+D_LightControllerSpy_H	tests\HomeAutomation\LightControllerSpy.h	29;"	d
+LIGHT_ID_UNKNOWN	tests\HomeAutomation\LightControllerSpy.h	/^    LIGHT_ID_UNKNOWN = -1, LIGHT_STATE_UNKNOWN = -1,$/;"	e	enum:__anon9
+LIGHT_OFF	tests\HomeAutomation\LightControllerSpy.h	/^    LIGHT_OFF = 0, LIGHT_ON = 1$/;"	e	enum:__anon9
+LIGHT_ON	tests\HomeAutomation\LightControllerSpy.h	/^    LIGHT_OFF = 0, LIGHT_ON = 1$/;"	e	enum:__anon9
+LIGHT_STATE_UNKNOWN	tests\HomeAutomation\LightControllerSpy.h	/^    LIGHT_ID_UNKNOWN = -1, LIGHT_STATE_UNKNOWN = -1,$/;"	e	enum:__anon9
+TEST	tests\HomeAutomation\LightControllerSpyTest.cpp	/^TEST(LightControllerSpy, Create)$/;"	f
+TEST	tests\HomeAutomation\LightControllerSpyTest.cpp	/^TEST(LightControllerSpy, RememberAllLightStates)$/;"	f
+TEST	tests\HomeAutomation\LightControllerSpyTest.cpp	/^TEST(LightControllerSpy, RememberTheLastLightIdControlled)$/;"	f
+TEST_GROUP	tests\HomeAutomation\LightControllerSpyTest.cpp	/^TEST_GROUP(LightControllerSpy)$/;"	f
+TEST	tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightScheduler, NoChangeToLightsDuringInitialization)$/;"	f
+TEST	tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightScheduler, NoScheduleNothingHappens)$/;"	f
+TEST	tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightScheduler, RejectsTooManyEvents)$/;"	f
+TEST	tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightScheduler, RemoveMultipleScheduledEvent)$/;"	f
+TEST	tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightScheduler, RemoveRecyclesScheduleSlot)$/;"	f
+TEST	tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightScheduler, ScheduleOffEverydayItsTime)$/;"	f
+TEST	tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightScheduler, ScheduleOnEverydayItsTime)$/;"	f
+TEST	tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightScheduler, ScheduleOnEverydayNotTimeYet)$/;"	f
+TEST	tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightScheduler, ScheduleTuesdayAndItsTuesday)$/;"	f
+TEST	tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightScheduler, ScheduleTuesdayButItsMonday)$/;"	f
+TEST	tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightScheduler, ScheduleTwoEventsAtTheSameTime)$/;"	f
+TEST	tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightScheduler, ScheduleWeekEndItsFriday)$/;"	f
+TEST	tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightScheduler, ScheduleWeekEndItsMonday)$/;"	f
+TEST	tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightScheduler, ScheduleWeekEndItsSaturday)$/;"	f
+TEST	tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightScheduler, ScheduleWeekEndItsSunday)$/;"	f
+TEST	tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightScheduler, WeekdayScheduleIsOperatedOnMonday)$/;"	f
+TEST	tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightScheduler, WeekdayScheduleNotOperatedOnSunday)$/;"	f
+TEST	tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightSchedulerInitAndCleanup, CreateStartsOneMinuteAlarm)$/;"	f
+TEST	tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightSchedulerInitAndCleanup, DestroyCancelsOneMinuteAlarm)$/;"	f
+TEST_GROUP	tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST_GROUP(LightScheduler)$/;"	f
+TEST_GROUP	tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST_GROUP(LightSchedulerInitAndCleanup)$/;"	f
+TEST	tests\LedDriver\LedDriverTest.cpp	/^TEST(LedDriver, AllOff)$/;"	f
+TEST	tests\LedDriver\LedDriverTest.cpp	/^TEST(LedDriver, AllOn)$/;"	f
+TEST	tests\LedDriver\LedDriverTest.cpp	/^TEST(LedDriver, IsOff)$/;"	f
+TEST	tests\LedDriver\LedDriverTest.cpp	/^TEST(LedDriver, IsOn)$/;"	f
+TEST	tests\LedDriver\LedDriverTest.cpp	/^TEST(LedDriver, LedMemoryIsNotReadable)$/;"	f
+TEST	tests\LedDriver\LedDriverTest.cpp	/^TEST(LedDriver, LedsOffAfterCreate)$/;"	f
+TEST	tests\LedDriver\LedDriverTest.cpp	/^TEST(LedDriver, OutOfBoundsLedsAreAlwaysOff)$/;"	f
+TEST	tests\LedDriver\LedDriverTest.cpp	/^TEST(LedDriver, OutOfBoundsProducesRuntimeError)$/;"	f
+TEST	tests\LedDriver\LedDriverTest.cpp	/^TEST(LedDriver, OutOfBoundsTurnOffDoesNoHarm)$/;"	f
+TEST	tests\LedDriver\LedDriverTest.cpp	/^TEST(LedDriver, OutOfBoundsTurnOnDoesNoHarm)$/;"	f
+TEST	tests\LedDriver\LedDriverTest.cpp	/^TEST(LedDriver, TurnOffAnyLed)$/;"	f
+TEST	tests\LedDriver\LedDriverTest.cpp	/^TEST(LedDriver, TurnOffLedOne)$/;"	f
+TEST	tests\LedDriver\LedDriverTest.cpp	/^TEST(LedDriver, TurnOffMultipleLeds)$/;"	f
+TEST	tests\LedDriver\LedDriverTest.cpp	/^TEST(LedDriver, TurnOnLedOne)$/;"	f
+TEST	tests\LedDriver\LedDriverTest.cpp	/^TEST(LedDriver, TurnOnMultipleLeds)$/;"	f
+TEST	tests\LedDriver\LedDriverTest.cpp	/^TEST(LedDriver, UpperAndLowerBounds)$/;"	f
+TEST_GROUP	tests\LedDriver\LedDriverTest.cpp	/^TEST_GROUP(LedDriver)$/;"	f
+TEST	tests\stdio\SprintfTest.cpp	/^TEST(sprintf, InsertString)$/;"	f
+TEST	tests\stdio\SprintfTest.cpp	/^TEST(sprintf, NoFormatOperations)$/;"	f
+TEST_GROUP	tests\stdio\SprintfTest.cpp	/^TEST_GROUP(sprintf)$/;"	f
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_PROGRAM_VERSION	5.8	//
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
