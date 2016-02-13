@@ -40,4 +40,7 @@ void TimeService_GetTime(Time *);
 
 typedef void (*WakeUpCallback)(void);
 
+void TimeService_SetPeriodicAlarmInSeconds(int seconds, WakeUpCallback);
+//void TimeService_CancelPeriodicAlarmInSeconds(int seconds, WakeUpCallback);
+
 #endif  /* D_TimeService_H */

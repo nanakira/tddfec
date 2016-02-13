@@ -56,6 +56,12 @@ void FakeTimeService_SetDay(int day)
     fakeTime.dayOfWeek = day;
 }
 
+void TimeService_SetPeriodicAlarmInSeconds(int seconds, WakeUpCallback cb)
+{
+    callback = cb;
+    period = seconds;
+}
+
 WakeUpCallback FakeTimeService_GetAlarmCallback(void)
 {
     return callback;
