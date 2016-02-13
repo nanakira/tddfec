@@ -53,6 +53,7 @@ void LightScheduler_Create(void)
 
 void LightScheduler_Destroy(void)
 {
+    TimeService_CancelPeriodicAlarmInSeconds(60, LightScheduler_WakeUp);
 }
 
 static void scheduleEvent(int id, Day day, int minuteOfDay, int event)
