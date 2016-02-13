@@ -8,11 +8,15 @@ ALL_LEDS_OFF	.\src\LedDriver\LedDriver.c	/^enum {ALL_LEDS_OFF = 0, ALL_LEDS_ON =
 ALL_LEDS_ON	.\src\LedDriver\LedDriver.c	/^enum {ALL_LEDS_OFF = 0, ALL_LEDS_ON = 0xffff};$/;"	e	enum:__anon6	file:
 BOOL	.\include\LedDriver\LedDriver.h	/^typedef int BOOL;$/;"	t
 BOOL	.\include\util\common.h	34;"	d
+BOUND	.\tests\HomeAutomation\RandomMinuteTest.cpp	/^enum { BOUND=30 };$/;"	e	enum:__anon10	file:
+DIM	.\src\HomeAutomation\LightScheduler.c	/^    TURN_ON, TURN_OFF, DIM, RANDOM_ON, RANDOM_OFF,$/;"	e	enum:__anon4	file:
+D_FakeRandomMinute_H	.\mocks\FakeRandomMinute.h	28;"	d
 D_FakeTimeService_H	.\tests\HomeAutomation\FakeTimeService.h	29;"	d
 D_LedDriver_H	.\include\LedDriver\LedDriver.h	2;"	d
 D_LightControllerSpy_H	.\tests\HomeAutomation\LightControllerSpy.h	29;"	d
 D_LightController_H	.\include\HomeAutomation\LightController.h	29;"	d
 D_LightScheduler_H	.\include\HomeAutomation\LightScheduler.h	29;"	d
+D_RandomMinute_H	.\include\HomeAutomation\RandomMinute.h	29;"	d
 D_RuntimeErrorStub_H	.\mocks\RuntimeErrorStub.h	28;"	d
 D_RuntimeError_H	.\include\util\RuntimeError.h	29;"	d
 D_TimeService_H	.\include\HomeAutomation\TimeService.h	29;"	d
@@ -24,6 +28,9 @@ FALSE	.\include\LedDriver\LedDriver.h	6;"	d
 FALSE	.\include\util\common.h	42;"	d
 FIRST_LED	.\src\LedDriver\LedDriver.c	/^enum {FIRST_LED = 1, LAST_LED = 16};$/;"	e	enum:__anon7	file:
 FRIDAY	.\include\HomeAutomation\LightScheduler.h	/^    SUNDAY=1, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY$/;"	e	enum:__anon2
+FakeRandomMinute_Get	.\mocks\FakeRandomMinute.c	/^int FakeRandomMinute_Get(void)$/;"	f
+FakeRandomMinute_Reset	.\mocks\FakeRandomMinute.c	/^void FakeRandomMinute_Reset(void)$/;"	f
+FakeRandomMinute_SetFirstAndIncrement	.\mocks\FakeRandomMinute.c	/^void FakeRandomMinute_SetFirstAndIncrement(int s, int i)$/;"	f
 FakeTimeService_GetAlarmCallback	.\tests\HomeAutomation\FakeTimeService.c	/^WakeUpCallback FakeTimeService_GetAlarmCallback(void)$/;"	f
 FakeTimeService_GetAlarmPeriod	.\tests\HomeAutomation\FakeTimeService.c	/^int FakeTimeService_GetAlarmPeriod(void)$/;"	f
 FakeTimeService_SetDay	.\tests\HomeAutomation\FakeTimeService.c	/^void FakeTimeService_SetDay(int day)$/;"	f
@@ -54,6 +61,7 @@ LightController_Off	.\tests\HomeAutomation\LightControllerSpy.c	/^void LightCont
 LightController_On	.\tests\HomeAutomation\LightControllerSpy.c	/^void LightController_On(int id)$/;"	f
 LightScheduler_Create	.\src\HomeAutomation\LightScheduler.c	/^void LightScheduler_Create(void)$/;"	f
 LightScheduler_Destroy	.\src\HomeAutomation\LightScheduler.c	/^void LightScheduler_Destroy(void)$/;"	f
+LightScheduler_Randomize	.\src\HomeAutomation\LightScheduler.c	/^void LightScheduler_Randomize(int id, Day day, int minuteOfDay)$/;"	f
 LightScheduler_ScheduleRemove	.\src\HomeAutomation\LightScheduler.c	/^void LightScheduler_ScheduleRemove(int id, Day day, int minute)$/;"	f
 LightScheduler_ScheduleTurnOff	.\src\HomeAutomation\LightScheduler.c	/^int LightScheduler_ScheduleTurnOff(int id, Day day, int minuteOfDay)$/;"	f
 LightScheduler_ScheduleTurnOn	.\src\HomeAutomation\LightScheduler.c	/^int LightScheduler_ScheduleTurnOn(int id, Day day, int minuteOfDay)$/;"	f
@@ -63,7 +71,12 @@ MAX_LIGHTS	.\include\HomeAutomation\LightController.h	/^enum { MAX_LIGHTS = 32 }
 MONDAY	.\include\HomeAutomation\LightScheduler.h	/^    SUNDAY=1, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY$/;"	e	enum:__anon2
 NONE	.\include\HomeAutomation\LightScheduler.h	/^    NONE=-1, EVERYDAY=10, WEEKDAY, WEEKEND,$/;"	e	enum:__anon2
 NULL	.\include\util\common.h	46;"	d
+RANDOM_OFF	.\src\HomeAutomation\LightScheduler.c	/^    TURN_ON, TURN_OFF, DIM, RANDOM_ON, RANDOM_OFF,$/;"	e	enum:__anon4	file:
+RANDOM_ON	.\src\HomeAutomation\LightScheduler.c	/^    TURN_ON, TURN_OFF, DIM, RANDOM_ON, RANDOM_OFF,$/;"	e	enum:__anon4	file:
 RUNTIME_ERROR	.\include\util\RuntimeError.h	34;"	d
+RandomMinute_Create	.\src\HomeAutomation\RandomMinute.c	/^void RandomMinute_Create(int b)$/;"	f
+RandomMinute_Get	.\src\HomeAutomation\RandomMinute.c	/^int (*RandomMinute_Get)(void) = RandomMinute_GetImpl;$/;"	v
+RandomMinute_GetImpl	.\src\HomeAutomation\RandomMinute.c	/^int RandomMinute_GetImpl(void)$/;"	f
 RuntimeError	.\mocks\RuntimeErrorStub.c	/^void RuntimeError(const char * m, int p, const char * f, int l)$/;"	f
 RuntimeErrorStub_GetLastError	.\mocks\RuntimeErrorStub.c	/^const char * RuntimeErrorStub_GetLastError(void)$/;"	f
 RuntimeErrorStub_GetLastParameter	.\mocks\RuntimeErrorStub.c	/^int RuntimeErrorStub_GetLastParameter(void)$/;"	f
@@ -76,8 +89,11 @@ TEST	.\tests\HomeAutomation\FakeTimeServiceTest.cpp	/^TEST(FakeTimeService, Set)
 TEST	.\tests\HomeAutomation\LightControllerSpyTest.cpp	/^TEST(LightControllerSpy, Create)$/;"	f
 TEST	.\tests\HomeAutomation\LightControllerSpyTest.cpp	/^TEST(LightControllerSpy, RememberAllLightStates)$/;"	f
 TEST	.\tests\HomeAutomation\LightControllerSpyTest.cpp	/^TEST(LightControllerSpy, RememberTheLastLightIdControlled)$/;"	f
+TEST	.\tests\HomeAutomation\LightSchedulerRandomizeTest.cpp	/^TEST(LightSchedulerRandomize, TurnsOnEarly)$/;"	f
+TEST	.\tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightScheduler, AcceptsValidLightIds)$/;"	f
 TEST	.\tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightScheduler, NoChangeToLightsDuringInitialization)$/;"	f
 TEST	.\tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightScheduler, NoScheduleNothingHappens)$/;"	f
+TEST	.\tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightScheduler, RejectsInvalidLightIds)$/;"	f
 TEST	.\tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightScheduler, RejectsTooManyEvents)$/;"	f
 TEST	.\tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightScheduler, RemoveMultipleScheduledEvent)$/;"	f
 TEST	.\tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightScheduler, RemoveRecyclesScheduleSlot)$/;"	f
@@ -95,6 +111,8 @@ TEST	.\tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightScheduler, Weekda
 TEST	.\tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightScheduler, WeekdayScheduleNotOperatedOnSunday)$/;"	f
 TEST	.\tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightSchedulerInitAndCleanup, CreateStartsOneMinuteAlarm)$/;"	f
 TEST	.\tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightSchedulerInitAndCleanup, DestroyCancelsOneMinuteAlarm)$/;"	f
+TEST	.\tests\HomeAutomation\RandomMinuteTest.cpp	/^TEST(RandomMinute, AllValuesPossible)$/;"	f
+TEST	.\tests\HomeAutomation\RandomMinuteTest.cpp	/^TEST(RandomMinute, GetIsInRange)$/;"	f
 TEST	.\tests\LedDriver\LedDriverTest.cpp	/^TEST(LedDriver, AllOff)$/;"	f
 TEST	.\tests\LedDriver\LedDriverTest.cpp	/^TEST(LedDriver, AllOn)$/;"	f
 TEST	.\tests\LedDriver\LedDriverTest.cpp	/^TEST(LedDriver, IsOff)$/;"	f
@@ -115,8 +133,10 @@ TEST	.\tests\stdio\SprintfTest.cpp	/^TEST(sprintf, InsertString)$/;"	f
 TEST	.\tests\stdio\SprintfTest.cpp	/^TEST(sprintf, NoFormatOperations)$/;"	f
 TEST_GROUP	.\tests\HomeAutomation\FakeTimeServiceTest.cpp	/^TEST_GROUP(FakeTimeService)$/;"	f
 TEST_GROUP	.\tests\HomeAutomation\LightControllerSpyTest.cpp	/^TEST_GROUP(LightControllerSpy)$/;"	f
+TEST_GROUP	.\tests\HomeAutomation\LightSchedulerRandomizeTest.cpp	/^TEST_GROUP(LightSchedulerRandomize)$/;"	f
 TEST_GROUP	.\tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST_GROUP(LightScheduler)$/;"	f
 TEST_GROUP	.\tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST_GROUP(LightSchedulerInitAndCleanup)$/;"	f
+TEST_GROUP	.\tests\HomeAutomation\RandomMinuteTest.cpp	/^TEST_GROUP(RandomMinute)$/;"	f
 TEST_GROUP	.\tests\LedDriver\LedDriverTest.cpp	/^TEST_GROUP(LedDriver)$/;"	f
 TEST_GROUP	.\tests\stdio\SprintfTest.cpp	/^TEST_GROUP(sprintf)$/;"	f
 THURSDAY	.\include\HomeAutomation\LightScheduler.h	/^    SUNDAY=1, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY$/;"	e	enum:__anon2
@@ -124,8 +144,8 @@ TIME_UNKNOWN	.\tests\HomeAutomation\FakeTimeService.h	/^enum {TIME_UNKNOWN = -1}
 TRUE	.\include\LedDriver\LedDriver.h	5;"	d
 TRUE	.\include\util\common.h	38;"	d
 TUESDAY	.\include\HomeAutomation\LightScheduler.h	/^    SUNDAY=1, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY$/;"	e	enum:__anon2
-TURN_OFF	.\src\HomeAutomation\LightScheduler.c	/^    TURN_OFF, TURN_ON,$/;"	e	enum:__anon4	file:
-TURN_ON	.\src\HomeAutomation\LightScheduler.c	/^    TURN_OFF, TURN_ON,$/;"	e	enum:__anon4	file:
+TURN_OFF	.\src\HomeAutomation\LightScheduler.c	/^    TURN_ON, TURN_OFF, DIM, RANDOM_ON, RANDOM_OFF,$/;"	e	enum:__anon4	file:
+TURN_ON	.\src\HomeAutomation\LightScheduler.c	/^    TURN_ON, TURN_OFF, DIM, RANDOM_ON, RANDOM_OFF,$/;"	e	enum:__anon4	file:
 Time	.\include\HomeAutomation\TimeService.h	/^typedef struct Time$/;"	s
 Time	.\include\HomeAutomation\TimeService.h	/^} Time;$/;"	t	typeref:struct:Time
 TimeService_CancelPeriodicAlarmInSeconds	.\tests\HomeAutomation\FakeTimeService.c	/^void TimeService_CancelPeriodicAlarmInSeconds(int seconds, WakeUpCallback cb)$/;"	f
@@ -138,6 +158,7 @@ WEDNESDAY	.\include\HomeAutomation\LightScheduler.h	/^    SUNDAY=1, MONDAY, TUES
 WEEKDAY	.\include\HomeAutomation\LightScheduler.h	/^    NONE=-1, EVERYDAY=10, WEEKDAY, WEEKEND,$/;"	e	enum:__anon2
 WEEKEND	.\include\HomeAutomation\LightScheduler.h	/^    NONE=-1, EVERYDAY=10, WEEKDAY, WEEKEND,$/;"	e	enum:__anon2
 WakeUpCallback	.\include\HomeAutomation\TimeService.h	/^typedef void (*WakeUpCallback)(void);$/;"	t
+bound	.\src\HomeAutomation\RandomMinute.c	/^static int bound = 0;$/;"	v	file:
 callBackCalled	.\tests\HomeAutomation\FakeTimeServiceTest.cpp	/^static int callBackCalled;$/;"	v	file:
 callback	.\tests\HomeAutomation\FakeTimeService.c	/^static WakeUpCallback callback;$/;"	v	file:
 clearLedImageBit	.\src\LedDriver\LedDriver.c	/^static void clearLedImageBit(int ledNumber)$/;"	f	file:
@@ -148,6 +169,7 @@ event	.\src\HomeAutomation\LightScheduler.c	/^    int event;$/;"	m	struct:__anon
 fakeTime	.\tests\HomeAutomation\FakeTimeService.c	/^static Time fakeTime;$/;"	v	file:
 file	.\mocks\RuntimeErrorStub.c	/^static const char * file = 0;$/;"	v	file:
 id	.\src\HomeAutomation\LightScheduler.c	/^    int id;$/;"	m	struct:__anon5	file:
+increment	.\mocks\FakeRandomMinute.c	/^static int increment = -1;$/;"	v	file:
 isIdInRange	.\tests\HomeAutomation\LightControllerSpy.c	/^static int isIdInRange(int id)$/;"	f	file:
 lastId	.\tests\HomeAutomation\LightControllerSpy.c	/^static int lastId;$/;"	v	file:
 lastState	.\tests\HomeAutomation\LightControllerSpy.c	/^static int lastState;$/;"	v	file:
@@ -163,7 +185,10 @@ operateLight	.\src\HomeAutomation\LightScheduler.c	/^static void operateLight(Sc
 parameter	.\mocks\RuntimeErrorStub.c	/^static int parameter = -1;$/;"	v	file:
 period	.\tests\HomeAutomation\FakeTimeService.c	/^static int period;$/;"	v	file:
 processEventDueNow	.\src\HomeAutomation\LightScheduler.c	/^static void processEventDueNow(Time * time, ScheduledLightEvent * lightEvent)$/;"	f	file:
+randomMinutes	.\src\HomeAutomation\LightScheduler.c	/^    int randomMinutes;$/;"	m	struct:__anon5	file:
+randomize	.\src\HomeAutomation\LightScheduler.c	/^    int randomize;$/;"	m	struct:__anon5	file:
 scheduleEvent	.\src\HomeAutomation\LightScheduler.c	/^static int scheduleEvent(int id, Day day, int minuteOfDay, int event)$/;"	f	file:
 scheduledEvents	.\src\HomeAutomation\LightScheduler.c	/^static ScheduledLightEvent scheduledEvents[MAX_EVENTS];$/;"	v	file:
+seed	.\mocks\FakeRandomMinute.c	/^static int seed = -1;$/;"	v	file:
 setLedImageBit	.\src\LedDriver\LedDriver.c	/^static void setLedImageBit(int ledNumber)$/;"	f	file:
 updateHardware	.\src\LedDriver\LedDriver.c	/^static void updateHardware(void)$/;"	f	file:

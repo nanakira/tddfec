@@ -24,21 +24,12 @@
 /*-    www.renaissancesoftware.net james@renaissancesoftware.net       -*/
 /*- ------------------------------------------------------------------ -*/
 
+#ifndef D_FakeRandomMinute_H
+#define D_FakeRandomMinute_H
+
 #include "RandomMinute.h"
-#include <stdlib.h>
-#include <memory.h>
 
-static int bound = 0;
-
-void RandomMinute_Create(int b)
-{
-    bound = b;
-    srand(10);
-}
-
-int RandomMinute_GetImpl(void)
-{
-    return bound - rand() % (bound * 2 + 1);
-}
-
-int (*RandomMinute_Get)(void) = RandomMinute_GetImpl;
+void FakeRandomMinute_SetFirstAndIncrement(int seed, int increment);
+int FakeRandomMinute_Get(void);
+void FakeRandomMinute_Reset(void);
+#endif  /* D_RandomMinute_H */
