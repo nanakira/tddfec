@@ -172,6 +172,15 @@ TEST(LightScheduler, ScheduleTwoEventsAtTheSameTime)
     checkLightState(12, LIGHT_ON);
 }
 
+TEST(LightScheduler, RejectsTooManyEvents)
+{
+    int i;
+    for (i = 0; i < 128; i++)
+        LONGS_EQUAL(LS_OK, LightScheduler_ScheduleTurnOn(6, MONDAY, 600+i));
+
+    LONGS_EQUAL(LS_TOO_MANY_EVENTS, LightScheduler_ScheduleTurnOn(6, MONDAY, 600+i));
+}
+
 TEST_GROUP(LightSchedulerInitAndCleanup)
 {
 };
