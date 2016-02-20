@@ -40,7 +40,11 @@ void Flash_Destroy(void)
 {
 }
 
-int Flash_Write(ioAddress offset, ioData data)
+int Flash_Write(ioAddress address, ioData data)
 {
-    return -1;
+    IO_Write(CommandRegister, ProgramCommand);
+    IO_Write(address, data);
+    IO_Read(StatusRegister);
+    IO_Read(address);
+    return FLASH_SUCCESS;
 }
