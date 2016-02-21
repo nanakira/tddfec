@@ -63,3 +63,17 @@ TEST(Flash, WriteSucceeds_ReadyImmediately)
     result = Flash_Write(address, data);
     LONGS_EQUAL(FLASH_SUCCESS, result);
 }
+
+TEST(Flash, SucceedsNotImmediatelyReady)
+{
+    MockIO_Expect_Write(CommandRegister, ProgramCommand);
+    MockIO_Expect_Write(address, data);
+    MockIO_Expect_ReadThenReturn(StatusRegister, 0);
+    MockIO_Expect_ReadThenReturn(StatusRegister, 0);
+    MockIO_Expect_ReadThenReturn(StatusRegister, 0);
+    MockIO_Expect_ReadThenReturn(StatusRegister, ReadyBit);
+    MockIO_Expect_ReadThenReturn(address, data);
+
+    result = Flash_Write(address, data);
+    LONGS_EQUAL(FLASH_SUCCESS, result);
+}
