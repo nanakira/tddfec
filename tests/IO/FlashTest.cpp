@@ -124,3 +124,15 @@ TEST(Flash, WriteFails_FlashUnknownProgramError)
 
     LONGS_EQUAL(FLASH_UNKNOWN_PROGRAM_ERROR, result);
 }
+
+TEST(Flash, WriteFails_FlashReadBackError)
+{
+    MockIO_Expect_Write(CommandRegister, ProgramCommand);
+    MockIO_Expect_Write(address, data);
+    MockIO_Expect_ReadThenReturn(StatusRegister, ReadyBit);
+    MockIO_Expect_ReadThenReturn(address, (ioData)(data-1));
+
+    result = Flash_Write(address, data);
+
+    LONGS_EQUAL(FLASH_READ_BACK_ERROR, result);
+}

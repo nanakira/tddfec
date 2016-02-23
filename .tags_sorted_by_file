@@ -23,12 +23,44 @@ Time	include\HomeAutomation\TimeService.h	/^} Time;$/;"	t	typeref:struct:Time
 WakeUpCallback	include\HomeAutomation\TimeService.h	/^typedef void (*WakeUpCallback)(void);$/;"	t
 dayOfWeek	include\HomeAutomation\TimeService.h	/^    int dayOfWeek;$/;"	m	struct:Time
 minuteOfDay	include\HomeAutomation\TimeService.h	/^    int minuteOfDay;$/;"	m	struct:Time
+D_Flash_H	include\IO\Flash.h	29;"	d
+FLASH_PROGRAM_ERROR	include\IO\Flash.h	/^	FLASH_PROGRAM_ERROR,$/;"	e	enum:__anon4
+FLASH_PROTECTED_BLOCK_ERROR	include\IO\Flash.h	/^	FLASH_PROTECTED_BLOCK_ERROR,$/;"	e	enum:__anon4
+FLASH_READ_BACK_ERROR	include\IO\Flash.h	/^	FLASH_READ_BACK_ERROR,$/;"	e	enum:__anon4
+FLASH_SUCCESS	include\IO\Flash.h	/^	FLASH_SUCCESS = 0,$/;"	e	enum:__anon4
+FLASH_TIMEOUT_ERROR	include\IO\Flash.h	/^	FLASH_TIMEOUT_ERROR$/;"	e	enum:__anon4
+FLASH_UNKNOWN_PROGRAM_ERROR	include\IO\Flash.h	/^	FLASH_UNKNOWN_PROGRAM_ERROR,$/;"	e	enum:__anon4
+FLASH_VPP_ERROR	include\IO\Flash.h	/^	FLASH_VPP_ERROR,$/;"	e	enum:__anon4
+FlashStatus	include\IO\Flash.h	/^} FlashStatus;$/;"	t	typeref:enum:__anon4
+D_IO_H	include\IO\IO.h	30;"	d
+ioAddress	include\IO\IO.h	/^typedef uint32_t ioAddress;$/;"	t
+ioData	include\IO\IO.h	/^typedef uint16_t ioData;$/;"	t
+D_MicroTime_H	include\IO\MicroTime.h	28;"	d
+BlockProtectionErrorBit	include\IO\m28w160ect.h	/^	BlockProtectionErrorBit = 1<<1,$/;"	e	enum:__anon7
+CommandRegister	include\IO\m28w160ect.h	/^	CommandRegister = 0x0,$/;"	e	enum:__anon5
+D_m28w160ect_H	include\IO\m28w160ect.h	29;"	d
+EraseErrorBit	include\IO\m28w160ect.h	/^	EraseErrorBit = 1<<5,$/;"	e	enum:__anon7
+EraseSuspendBit	include\IO\m28w160ect.h	/^	EraseSuspendBit = 1<<6,$/;"	e	enum:__anon7
+Flash_Command	include\IO\m28w160ect.h	/^} Flash_Command;$/;"	t	typeref:enum:__anon6
+Flash_Registers	include\IO\m28w160ect.h	/^} Flash_Registers;$/;"	t	typeref:enum:__anon5
+ProgramCommand	include\IO\m28w160ect.h	/^	ProgramCommand = 0x40,$/;"	e	enum:__anon6
+ProgramErrorBit	include\IO\m28w160ect.h	/^	ProgramErrorBit = 1<<4,$/;"	e	enum:__anon7
+ProgramSuspendBit	include\IO\m28w160ect.h	/^	ProgramSuspendBit = 1<<2,$/;"	e	enum:__anon7
+ReadyBit	include\IO\m28w160ect.h	/^	ReadyBit = 1<<7,$/;"	e	enum:__anon7
+ReservedBit	include\IO\m28w160ect.h	/^	ReservedBit = 1$/;"	e	enum:__anon7
+Reset	include\IO\m28w160ect.h	/^	Reset = 0xff$/;"	e	enum:__anon6
+StatusRegister	include\IO\m28w160ect.h	/^	StatusRegister = 0x0$/;"	e	enum:__anon5
+StatusRegisterBits	include\IO\m28w160ect.h	/^} StatusRegisterBits;$/;"	t	typeref:enum:__anon7
+VppErrorBit	include\IO\m28w160ect.h	/^	VppErrorBit = 1<<3,$/;"	e	enum:__anon7
 BOOL	include\LedDriver\LedDriver.h	/^typedef int BOOL;$/;"	t
 D_LedDriver_H	include\LedDriver\LedDriver.h	2;"	d
 FALSE	include\LedDriver\LedDriver.h	6;"	d
 TRUE	include\LedDriver\LedDriver.h	5;"	d
+CircularBuffer	include\util\CircularBuffer.h	/^typedef struct CircularBufferStruct * CircularBuffer;$/;"	t	typeref:struct:CircularBufferStruct
+D_CircularBuffer_H	include\util\CircularBuffer.h	30;"	d
 D_RuntimeError_H	include\util\RuntimeError.h	29;"	d
 RUNTIME_ERROR	include\util\RuntimeError.h	34;"	d
+D_Utils_H	include\util\Utils.h	31;"	d
 BOOL	include\util\common.h	34;"	d
 D_common_H	include\util\common.h	31;"	d
 FALSE	include\util\common.h	42;"	d
@@ -40,6 +72,69 @@ FakeRandomMinute_SetFirstAndIncrement	mocks\FakeRandomMinute.c	/^void FakeRandom
 increment	mocks\FakeRandomMinute.c	/^static int increment = -1;$/;"	v	file:
 seed	mocks\FakeRandomMinute.c	/^static int seed = -1;$/;"	v	file:
 D_FakeRandomMinute_H	mocks\FakeRandomMinute.h	28;"	d
+FormatOutputSpy	mocks\FormatOutputSpy.c	/^int FormatOutputSpy(const char * format, ...)$/;"	f
+FormatOutputSpy_Create	mocks\FormatOutputSpy.c	/^void FormatOutputSpy_Create(int size)$/;"	f
+FormatOutputSpy_Destroy	mocks\FormatOutputSpy.c	/^void FormatOutputSpy_Destroy(void)$/;"	f
+FormatOutputSpy_GetOutput	mocks\FormatOutputSpy.c	/^const char * FormatOutputSpy_GetOutput(void)$/;"	f
+WINDOWS_VSNPRINTF_OVERWRITE	mocks\FormatOutputSpy.c	32;"	d	file:
+buffer	mocks\FormatOutputSpy.c	/^static char * buffer = 0;$/;"	v	file:
+buffer_offset	mocks\FormatOutputSpy.c	/^static int buffer_offset = 0;$/;"	v	file:
+buffer_size	mocks\FormatOutputSpy.c	/^static size_t buffer_size = 0;$/;"	v	file:
+buffer_used	mocks\FormatOutputSpy.c	/^static int buffer_used = 0;$/;"	v	file:
+vsnprintf	mocks\FormatOutputSpy.c	34;"	d	file:
+D_FormatOutputSpy_H	mocks\FormatOutputSpy.h	29;"	d
+TEST	mocks\FormatOutputSpyTest.cpp	/^TEST(FormatOutputSpy, HelloWorld)$/;"	f
+TEST	mocks\FormatOutputSpyTest.cpp	/^TEST(FormatOutputSpy, LimitTheOutputBufferSize)$/;"	f
+TEST	mocks\FormatOutputSpyTest.cpp	/^TEST(FormatOutputSpy, PrintMultipleOutputsPastFull)$/;"	f
+TEST	mocks\FormatOutputSpyTest.cpp	/^TEST(FormatOutputSpy, PrintMultipleTimes)$/;"	f
+TEST_GROUP	mocks\FormatOutputSpyTest.cpp	/^TEST_GROUP(FormatOutputSpy)$/;"	f
+Expectation	mocks\MockIO.c	/^typedef struct Expectation$/;"	s	file:
+Expectation	mocks\MockIO.c	/^} Expectation;$/;"	t	typeref:struct:Expectation	file:
+FLASH_READ	mocks\MockIO.c	/^    FLASH_READ, FLASH_WRITE, NoExpectedValue = -1$/;"	e	enum:__anon8	file:
+FLASH_WRITE	mocks\MockIO.c	/^    FLASH_READ, FLASH_WRITE, NoExpectedValue = -1$/;"	e	enum:__anon8	file:
+IO_Read	mocks\MockIO.c	/^ioData IO_Read(ioAddress addr)$/;"	f
+IO_Write	mocks\MockIO.c	/^void IO_Write(ioAddress addr, ioData value)$/;"	f
+MockIO_Create	mocks\MockIO.c	/^void MockIO_Create(int maxExpectations)$/;"	f
+MockIO_Destroy	mocks\MockIO.c	/^void MockIO_Destroy(void)$/;"	f
+MockIO_Expect_ReadThenReturn	mocks\MockIO.c	/^void MockIO_Expect_ReadThenReturn(ioAddress addr, ioData value)$/;"	f
+MockIO_Expect_Write	mocks\MockIO.c	/^void MockIO_Expect_Write(ioAddress addr, ioData value)$/;"	f
+MockIO_Verify_Complete	mocks\MockIO.c	/^void MockIO_Verify_Complete(void)$/;"	f
+NoExpectedValue	mocks\MockIO.c	/^    FLASH_READ, FLASH_WRITE, NoExpectedValue = -1$/;"	e	enum:__anon8	file:
+actual	mocks\MockIO.c	/^static Expectation actual;$/;"	v	file:
+addr	mocks\MockIO.c	/^    ioAddress addr;$/;"	m	struct:Expectation	file:
+expectationIsNot	mocks\MockIO.c	/^static int expectationIsNot(int kind)$/;"	f	file:
+expectations	mocks\MockIO.c	/^static Expectation * expectations = 0;$/;"	v	file:
+expected	mocks\MockIO.c	/^static Expectation expected;$/;"	v	file:
+expectedAddressIsNot	mocks\MockIO.c	/^static int expectedAddressIsNot(ioAddress addr)$/;"	f	file:
+expectedDataIsNot	mocks\MockIO.c	/^static int expectedDataIsNot(ioData data)$/;"	f	file:
+fail	mocks\MockIO.c	/^static void fail(char * message)$/;"	f	file:
+failExpectation	mocks\MockIO.c	/^static void failExpectation(char * expectationFailMessage)$/;"	f	file:
+failWhen	mocks\MockIO.c	/^static void failWhen(int condition, char * expectationFailMessage)$/;"	f	file:
+failWhenNoRoomForExpectations	mocks\MockIO.c	/^static void failWhenNoRoomForExpectations(char * message)$/;"	f	file:
+failWhenNoUnusedExpectations	mocks\MockIO.c	/^static void failWhenNoUnusedExpectations(char * format)$/;"	f	file:
+failWhenNotAllExpectationsUsed	mocks\MockIO.c	/^static void failWhenNotAllExpectationsUsed(void)$/;"	f	file:
+failWhenNotInitialized	mocks\MockIO.c	/^static void failWhenNotInitialized(void)$/;"	f	file:
+failureAlreadyReported	mocks\MockIO.c	/^static int failureAlreadyReported = 0;$/;"	v	file:
+getExpectationCount	mocks\MockIO.c	/^static int getExpectationCount;$/;"	v	file:
+kind	mocks\MockIO.c	/^    int kind;$/;"	m	struct:Expectation	file:
+maxExpectationCount	mocks\MockIO.c	/^static int maxExpectationCount;$/;"	v	file:
+recordExpectation	mocks\MockIO.c	/^void recordExpectation(int kind, ioAddress addr, ioData data)$/;"	f
+report_MockIO_not_initialized	mocks\MockIO.c	/^static char * report_MockIO_not_initialized =$/;"	v	file:
+report_expect_read_was_write	mocks\MockIO.c	/^static char * report_expect_read_was_write =$/;"	v	file:
+report_expect_write_was_read	mocks\MockIO.c	/^static char * report_expect_write_was_read =$/;"	v	file:
+report_expectation_number	mocks\MockIO.c	/^static const char * report_expectation_number =$/;"	v	file:
+report_no_more_expectations	mocks\MockIO.c	/^static const char * report_no_more_expectations =$/;"	v	file:
+report_read_but_out_of_expectations	mocks\MockIO.c	/^static char * report_read_but_out_of_expectations =$/;"	v	file:
+report_read_wrong_address	mocks\MockIO.c	/^static char * report_read_wrong_address =$/;"	v	file:
+report_too_many_read_expectations	mocks\MockIO.c	/^static char * report_too_many_read_expectations =$/;"	v	file:
+report_too_many_write_expectations	mocks\MockIO.c	/^static char * report_too_many_write_expectations =$/;"	v	file:
+report_write_but_out_of_expectations	mocks\MockIO.c	/^static char * report_write_but_out_of_expectations =$/;"	v	file:
+report_write_does_not_match	mocks\MockIO.c	/^static char * report_write_does_not_match =$/;"	v	file:
+setExpectationCount	mocks\MockIO.c	/^static int setExpectationCount;$/;"	v	file:
+setExpectedAndActual	mocks\MockIO.c	/^static void setExpectedAndActual(ioAddress addr, ioData value)$/;"	f	file:
+snprintf	mocks\MockIO.c	34;"	d	file:
+value	mocks\MockIO.c	/^    ioData value;$/;"	m	struct:Expectation	file:
+D_MockIO_H	mocks\MockIO.h	29;"	d
 RuntimeError	mocks\RuntimeErrorStub.c	/^void RuntimeError(const char * m, int p, const char * f, int l)$/;"	f
 RuntimeErrorStub_GetLastError	mocks\RuntimeErrorStub.c	/^const char * RuntimeErrorStub_GetLastError(void)$/;"	f
 RuntimeErrorStub_GetLastParameter	mocks\RuntimeErrorStub.c	/^int RuntimeErrorStub_GetLastParameter(void)$/;"	f
@@ -49,7 +144,7 @@ line	mocks\RuntimeErrorStub.c	/^static int line = -1;$/;"	v	file:
 message	mocks\RuntimeErrorStub.c	/^static const char * message = "No Error";$/;"	v	file:
 parameter	mocks\RuntimeErrorStub.c	/^static int parameter = -1;$/;"	v	file:
 D_RuntimeErrorStub_H	mocks\RuntimeErrorStub.h	28;"	d
-DIM	src\HomeAutomation\LightScheduler.c	/^    TURN_ON, TURN_OFF, DIM, RANDOM_ON, RANDOM_OFF,$/;"	e	enum:__anon4	file:
+DIM	src\HomeAutomation\LightScheduler.c	/^    TURN_ON, TURN_OFF, DIM, RANDOM_ON, RANDOM_OFF,$/;"	e	enum:__anon9	file:
 DoesLightRespondToday	src\HomeAutomation\LightScheduler.c	/^static int DoesLightRespondToday(Time * time, int reactionDay)$/;"	f	file:
 LightScheduler_Create	src\HomeAutomation\LightScheduler.c	/^void LightScheduler_Create(void)$/;"	f
 LightScheduler_Destroy	src\HomeAutomation\LightScheduler.c	/^void LightScheduler_Destroy(void)$/;"	f
@@ -58,32 +153,38 @@ LightScheduler_ScheduleRemove	src\HomeAutomation\LightScheduler.c	/^void LightSc
 LightScheduler_ScheduleTurnOff	src\HomeAutomation\LightScheduler.c	/^int LightScheduler_ScheduleTurnOff(int id, Day day, int minuteOfDay)$/;"	f
 LightScheduler_ScheduleTurnOn	src\HomeAutomation\LightScheduler.c	/^int LightScheduler_ScheduleTurnOn(int id, Day day, int minuteOfDay)$/;"	f
 LightScheduler_WakeUp	src\HomeAutomation\LightScheduler.c	/^void LightScheduler_WakeUp(void)$/;"	f
-MAX_EVENTS	src\HomeAutomation\LightScheduler.c	/^    MAX_EVENTS = 128$/;"	e	enum:__anon4	file:
-RANDOM_OFF	src\HomeAutomation\LightScheduler.c	/^    TURN_ON, TURN_OFF, DIM, RANDOM_ON, RANDOM_OFF,$/;"	e	enum:__anon4	file:
-RANDOM_ON	src\HomeAutomation\LightScheduler.c	/^    TURN_ON, TURN_OFF, DIM, RANDOM_ON, RANDOM_OFF,$/;"	e	enum:__anon4	file:
-ScheduledLightEvent	src\HomeAutomation\LightScheduler.c	/^} ScheduledLightEvent;$/;"	t	typeref:struct:__anon5	file:
-TURN_OFF	src\HomeAutomation\LightScheduler.c	/^    TURN_ON, TURN_OFF, DIM, RANDOM_ON, RANDOM_OFF,$/;"	e	enum:__anon4	file:
-TURN_ON	src\HomeAutomation\LightScheduler.c	/^    TURN_ON, TURN_OFF, DIM, RANDOM_ON, RANDOM_OFF,$/;"	e	enum:__anon4	file:
-UNUSED	src\HomeAutomation\LightScheduler.c	/^    UNUSED = -1,$/;"	e	enum:__anon4	file:
-day	src\HomeAutomation\LightScheduler.c	/^    Day day;$/;"	m	struct:__anon5	file:
-event	src\HomeAutomation\LightScheduler.c	/^    int event;$/;"	m	struct:__anon5	file:
-id	src\HomeAutomation\LightScheduler.c	/^    int id;$/;"	m	struct:__anon5	file:
-minuteOfDay	src\HomeAutomation\LightScheduler.c	/^    int minuteOfDay;$/;"	m	struct:__anon5	file:
+MAX_EVENTS	src\HomeAutomation\LightScheduler.c	/^    MAX_EVENTS = 128$/;"	e	enum:__anon9	file:
+RANDOM_OFF	src\HomeAutomation\LightScheduler.c	/^    TURN_ON, TURN_OFF, DIM, RANDOM_ON, RANDOM_OFF,$/;"	e	enum:__anon9	file:
+RANDOM_ON	src\HomeAutomation\LightScheduler.c	/^    TURN_ON, TURN_OFF, DIM, RANDOM_ON, RANDOM_OFF,$/;"	e	enum:__anon9	file:
+ScheduledLightEvent	src\HomeAutomation\LightScheduler.c	/^} ScheduledLightEvent;$/;"	t	typeref:struct:__anon10	file:
+TURN_OFF	src\HomeAutomation\LightScheduler.c	/^    TURN_ON, TURN_OFF, DIM, RANDOM_ON, RANDOM_OFF,$/;"	e	enum:__anon9	file:
+TURN_ON	src\HomeAutomation\LightScheduler.c	/^    TURN_ON, TURN_OFF, DIM, RANDOM_ON, RANDOM_OFF,$/;"	e	enum:__anon9	file:
+UNUSED	src\HomeAutomation\LightScheduler.c	/^    UNUSED = -1,$/;"	e	enum:__anon9	file:
+day	src\HomeAutomation\LightScheduler.c	/^    Day day;$/;"	m	struct:__anon10	file:
+event	src\HomeAutomation\LightScheduler.c	/^    int event;$/;"	m	struct:__anon10	file:
+id	src\HomeAutomation\LightScheduler.c	/^    int id;$/;"	m	struct:__anon10	file:
+minuteOfDay	src\HomeAutomation\LightScheduler.c	/^    int minuteOfDay;$/;"	m	struct:__anon10	file:
 operateLight	src\HomeAutomation\LightScheduler.c	/^static void operateLight(ScheduledLightEvent * lightEvent)$/;"	f	file:
 processEventDueNow	src\HomeAutomation\LightScheduler.c	/^static void processEventDueNow(Time * time, ScheduledLightEvent * lightEvent)$/;"	f	file:
-randomMinutes	src\HomeAutomation\LightScheduler.c	/^    int randomMinutes;$/;"	m	struct:__anon5	file:
-randomize	src\HomeAutomation\LightScheduler.c	/^    int randomize;$/;"	m	struct:__anon5	file:
+randomMinutes	src\HomeAutomation\LightScheduler.c	/^    int randomMinutes;$/;"	m	struct:__anon10	file:
+randomize	src\HomeAutomation\LightScheduler.c	/^    int randomize;$/;"	m	struct:__anon10	file:
 scheduleEvent	src\HomeAutomation\LightScheduler.c	/^static int scheduleEvent(int id, Day day, int minuteOfDay, int event)$/;"	f	file:
 scheduledEvents	src\HomeAutomation\LightScheduler.c	/^static ScheduledLightEvent scheduledEvents[MAX_EVENTS];$/;"	v	file:
 RandomMinute_Create	src\HomeAutomation\RandomMinute.c	/^void RandomMinute_Create(int b)$/;"	f
 RandomMinute_Get	src\HomeAutomation\RandomMinute.c	/^int (*RandomMinute_Get)(void) = RandomMinute_GetImpl;$/;"	v
 RandomMinute_GetImpl	src\HomeAutomation\RandomMinute.c	/^int RandomMinute_GetImpl(void)$/;"	f
 bound	src\HomeAutomation\RandomMinute.c	/^static int bound = 0;$/;"	v	file:
-ALL_LEDS_OFF	src\LedDriver\LedDriver.c	/^enum {ALL_LEDS_OFF = 0, ALL_LEDS_ON = 0xffff};$/;"	e	enum:__anon6	file:
-ALL_LEDS_ON	src\LedDriver\LedDriver.c	/^enum {ALL_LEDS_OFF = 0, ALL_LEDS_ON = 0xffff};$/;"	e	enum:__anon6	file:
-FIRST_LED	src\LedDriver\LedDriver.c	/^enum {FIRST_LED = 1, LAST_LED = 16};$/;"	e	enum:__anon7	file:
+FLASH_WRITE_TIMEOUT_IN_MICROSECONDS	src\IO\Flash.c	33;"	d	file:
+Flash_Create	src\IO\Flash.c	/^void Flash_Create(void)$/;"	f
+Flash_Destroy	src\IO\Flash.c	/^void Flash_Destroy(void)$/;"	f
+Flash_Write	src\IO\Flash.c	/^int Flash_Write(ioAddress address, ioData data)$/;"	f
+IO_Read	src\IO\IO.c	/^ioData IO_Read(ioAddress addr)$/;"	f
+IO_Write	src\IO\IO.c	/^void IO_Write(ioAddress addr, ioData data)$/;"	f
+ALL_LEDS_OFF	src\LedDriver\LedDriver.c	/^enum {ALL_LEDS_OFF = 0, ALL_LEDS_ON = 0xffff};$/;"	e	enum:__anon11	file:
+ALL_LEDS_ON	src\LedDriver\LedDriver.c	/^enum {ALL_LEDS_OFF = 0, ALL_LEDS_ON = 0xffff};$/;"	e	enum:__anon11	file:
+FIRST_LED	src\LedDriver\LedDriver.c	/^enum {FIRST_LED = 1, LAST_LED = 16};$/;"	e	enum:__anon12	file:
 IsLedOutOfBounds	src\LedDriver\LedDriver.c	/^static BOOL IsLedOutOfBounds(int ledNumber)$/;"	f	file:
-LAST_LED	src\LedDriver\LedDriver.c	/^enum {FIRST_LED = 1, LAST_LED = 16};$/;"	e	enum:__anon7	file:
+LAST_LED	src\LedDriver\LedDriver.c	/^enum {FIRST_LED = 1, LAST_LED = 16};$/;"	e	enum:__anon12	file:
 LedDriver_Create	src\LedDriver\LedDriver.c	/^void LedDriver_Create(uint16_t * address)$/;"	f
 LedDriver_Destroy	src\LedDriver\LedDriver.c	/^void LedDriver_Destroy(void)$/;"	f
 LedDriver_IsOff	src\LedDriver\LedDriver.c	/^BOOL LedDriver_IsOff(int ledNumber)$/;"	f
@@ -98,6 +199,24 @@ ledsAddress	src\LedDriver\LedDriver.c	/^static uint16_t * ledsAddress;$/;"	v	fil
 ledsImage	src\LedDriver\LedDriver.c	/^static uint16_t ledsImage;$/;"	v	file:
 setLedImageBit	src\LedDriver\LedDriver.c	/^static void setLedImageBit(int ledNumber)$/;"	f	file:
 updateHardware	src\LedDriver\LedDriver.c	/^static void updateHardware(void)$/;"	f	file:
+BUFFER_GUARD	src\util\CircularBuffer.c	/^enum {BUFFER_GUARD = -999};$/;"	e	enum:__anon13	file:
+CircularBufferStruct	src\util\CircularBuffer.c	/^typedef struct CircularBufferStruct$/;"	s	file:
+CircularBufferStruct	src\util\CircularBuffer.c	/^} CircularBufferStruct ;$/;"	t	typeref:struct:CircularBufferStruct	file:
+CircularBuffer_Capacity	src\util\CircularBuffer.c	/^int CircularBuffer_Capacity(CircularBuffer self)$/;"	f
+CircularBuffer_Create	src\util\CircularBuffer.c	/^CircularBuffer CircularBuffer_Create(int capacity)$/;"	f
+CircularBuffer_Destroy	src\util\CircularBuffer.c	/^void CircularBuffer_Destroy(CircularBuffer self)$/;"	f
+CircularBuffer_Get	src\util\CircularBuffer.c	/^int CircularBuffer_Get(CircularBuffer self)$/;"	f
+CircularBuffer_IsEmpty	src\util\CircularBuffer.c	/^int CircularBuffer_IsEmpty(CircularBuffer self)$/;"	f
+CircularBuffer_IsFull	src\util\CircularBuffer.c	/^int CircularBuffer_IsFull(CircularBuffer self)$/;"	f
+CircularBuffer_Print	src\util\CircularBuffer.c	/^void CircularBuffer_Print(CircularBuffer self)$/;"	f
+CircularBuffer_Put	src\util\CircularBuffer.c	/^int CircularBuffer_Put(CircularBuffer self, int value)$/;"	f
+CircularBuffer_VerifyIntegrity	src\util\CircularBuffer.c	/^int CircularBuffer_VerifyIntegrity(CircularBuffer self)$/;"	f
+capacity	src\util\CircularBuffer.c	/^    int capacity;$/;"	m	struct:CircularBufferStruct	file:
+count	src\util\CircularBuffer.c	/^    int count;$/;"	m	struct:CircularBufferStruct	file:
+index	src\util\CircularBuffer.c	/^    int index;$/;"	m	struct:CircularBufferStruct	file:
+outdex	src\util\CircularBuffer.c	/^    int outdex;$/;"	m	struct:CircularBufferStruct	file:
+values	src\util\CircularBuffer.c	/^    int * values;$/;"	m	struct:CircularBufferStruct	file:
+FormatOutput	src\util\Utils.c	/^int (*FormatOutput)(const char * format, ...) = printf;$/;"	v
 main	tests\AllTests.cpp	/^int main(int ac, char** av)$/;"	f
 FakeTimeService_GetAlarmCallback	tests\HomeAutomation\FakeTimeService.c	/^WakeUpCallback FakeTimeService_GetAlarmCallback(void)$/;"	f
 FakeTimeService_GetAlarmPeriod	tests\HomeAutomation\FakeTimeService.c	/^int FakeTimeService_GetAlarmPeriod(void)$/;"	f
@@ -112,7 +231,7 @@ callback	tests\HomeAutomation\FakeTimeService.c	/^static WakeUpCallback callback
 fakeTime	tests\HomeAutomation\FakeTimeService.c	/^static Time fakeTime;$/;"	v	file:
 period	tests\HomeAutomation\FakeTimeService.c	/^static int period;$/;"	v	file:
 D_FakeTimeService_H	tests\HomeAutomation\FakeTimeService.h	29;"	d
-TIME_UNKNOWN	tests\HomeAutomation\FakeTimeService.h	/^enum {TIME_UNKNOWN = -1};$/;"	e	enum:__anon8
+TIME_UNKNOWN	tests\HomeAutomation\FakeTimeService.h	/^enum {TIME_UNKNOWN = -1};$/;"	e	enum:__anon14
 TEST	tests\HomeAutomation\FakeTimeServiceTest.cpp	/^TEST(FakeTimeService, Create)$/;"	f
 TEST	tests\HomeAutomation\FakeTimeServiceTest.cpp	/^TEST(FakeTimeService, Set)$/;"	f
 TEST_GROUP	tests\HomeAutomation\FakeTimeServiceTest.cpp	/^TEST_GROUP(FakeTimeService)$/;"	f
@@ -129,10 +248,10 @@ lastId	tests\HomeAutomation\LightControllerSpy.c	/^static int lastId;$/;"	v	file
 lastState	tests\HomeAutomation\LightControllerSpy.c	/^static int lastState;$/;"	v	file:
 lights	tests\HomeAutomation\LightControllerSpy.c	/^static int lights[MAX_LIGHTS];$/;"	v	file:
 D_LightControllerSpy_H	tests\HomeAutomation\LightControllerSpy.h	29;"	d
-LIGHT_ID_UNKNOWN	tests\HomeAutomation\LightControllerSpy.h	/^    LIGHT_ID_UNKNOWN = -1, LIGHT_STATE_UNKNOWN = -1,$/;"	e	enum:__anon9
-LIGHT_OFF	tests\HomeAutomation\LightControllerSpy.h	/^    LIGHT_OFF = 0, LIGHT_ON = 1$/;"	e	enum:__anon9
-LIGHT_ON	tests\HomeAutomation\LightControllerSpy.h	/^    LIGHT_OFF = 0, LIGHT_ON = 1$/;"	e	enum:__anon9
-LIGHT_STATE_UNKNOWN	tests\HomeAutomation\LightControllerSpy.h	/^    LIGHT_ID_UNKNOWN = -1, LIGHT_STATE_UNKNOWN = -1,$/;"	e	enum:__anon9
+LIGHT_ID_UNKNOWN	tests\HomeAutomation\LightControllerSpy.h	/^    LIGHT_ID_UNKNOWN = -1, LIGHT_STATE_UNKNOWN = -1,$/;"	e	enum:__anon15
+LIGHT_OFF	tests\HomeAutomation\LightControllerSpy.h	/^    LIGHT_OFF = 0, LIGHT_ON = 1$/;"	e	enum:__anon15
+LIGHT_ON	tests\HomeAutomation\LightControllerSpy.h	/^    LIGHT_OFF = 0, LIGHT_ON = 1$/;"	e	enum:__anon15
+LIGHT_STATE_UNKNOWN	tests\HomeAutomation\LightControllerSpy.h	/^    LIGHT_ID_UNKNOWN = -1, LIGHT_STATE_UNKNOWN = -1,$/;"	e	enum:__anon15
 TEST	tests\HomeAutomation\LightControllerSpyTest.cpp	/^TEST(LightControllerSpy, Create)$/;"	f
 TEST	tests\HomeAutomation\LightControllerSpyTest.cpp	/^TEST(LightControllerSpy, RememberAllLightStates)$/;"	f
 TEST	tests\HomeAutomation\LightControllerSpyTest.cpp	/^TEST(LightControllerSpy, RememberTheLastLightIdControlled)$/;"	f
@@ -162,10 +281,18 @@ TEST	tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightSchedulerInitAndCle
 TEST	tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST(LightSchedulerInitAndCleanup, DestroyCancelsOneMinuteAlarm)$/;"	f
 TEST_GROUP	tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST_GROUP(LightScheduler)$/;"	f
 TEST_GROUP	tests\HomeAutomation\LightSchedulerTest.cpp	/^TEST_GROUP(LightSchedulerInitAndCleanup)$/;"	f
-BOUND	tests\HomeAutomation\RandomMinuteTest.cpp	/^enum { BOUND=30 };$/;"	e	enum:__anon10	file:
+BOUND	tests\HomeAutomation\RandomMinuteTest.cpp	/^enum { BOUND=30 };$/;"	e	enum:__anon16	file:
 TEST	tests\HomeAutomation\RandomMinuteTest.cpp	/^TEST(RandomMinute, AllValuesPossible)$/;"	f
 TEST	tests\HomeAutomation\RandomMinuteTest.cpp	/^TEST(RandomMinute, GetIsInRange)$/;"	f
 TEST_GROUP	tests\HomeAutomation\RandomMinuteTest.cpp	/^TEST_GROUP(RandomMinute)$/;"	f
+TEST	tests\IO\FlashTest.cpp	/^TEST(Flash, SucceedsNotImmediatelyReady)$/;"	f
+TEST	tests\IO\FlashTest.cpp	/^TEST(Flash, WriteFails_FlashReadBackError)$/;"	f
+TEST	tests\IO\FlashTest.cpp	/^TEST(Flash, WriteFails_FlashUnknownProgramError)$/;"	f
+TEST	tests\IO\FlashTest.cpp	/^TEST(Flash, WriteFails_ProgramError)$/;"	f
+TEST	tests\IO\FlashTest.cpp	/^TEST(Flash, WriteFails_ProtectedBlockError)$/;"	f
+TEST	tests\IO\FlashTest.cpp	/^TEST(Flash, WriteFails_VppError)$/;"	f
+TEST	tests\IO\FlashTest.cpp	/^TEST(Flash, WriteSucceeds_ReadyImmediately)$/;"	f
+TEST_GROUP	tests\IO\FlashTest.cpp	/^TEST_GROUP(Flash)$/;"	f
 TEST	tests\LedDriver\LedDriverTest.cpp	/^TEST(LedDriver, AllOff)$/;"	f
 TEST	tests\LedDriver\LedDriverTest.cpp	/^TEST(LedDriver, AllOn)$/;"	f
 TEST	tests\LedDriver\LedDriverTest.cpp	/^TEST(LedDriver, IsOff)$/;"	f
@@ -186,6 +313,11 @@ TEST_GROUP	tests\LedDriver\LedDriverTest.cpp	/^TEST_GROUP(LedDriver)$/;"	f
 TEST	tests\stdio\SprintfTest.cpp	/^TEST(sprintf, InsertString)$/;"	f
 TEST	tests\stdio\SprintfTest.cpp	/^TEST(sprintf, NoFormatOperations)$/;"	f
 TEST_GROUP	tests\stdio\SprintfTest.cpp	/^TEST_GROUP(sprintf)$/;"	f
+TEST	tests\util\CircularBufferPrintTest.cpp	/^TEST(CircularBufferPrint, PrintAfterOneIsPut)$/;"	f
+TEST	tests\util\CircularBufferPrintTest.cpp	/^TEST(CircularBufferPrint, PrintEmpty)$/;"	f
+TEST	tests\util\CircularBufferPrintTest.cpp	/^TEST(CircularBufferPrint, PrintNotYetWrappedAndIsFull)$/;"	f
+TEST	tests\util\CircularBufferPrintTest.cpp	/^TEST(CircularBufferPrint, PrintNotYetWrappedOrFull)$/;"	f
+TEST_GROUP	tests\util\CircularBufferPrintTest.cpp	/^TEST_GROUP(CircularBufferPrint)$/;"	f
 !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
 !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
 !_TAG_PROGRAM_VERSION	5.8	//
