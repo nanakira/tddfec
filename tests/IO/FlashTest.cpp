@@ -88,3 +88,39 @@ TEST(Flash, WriteFails_VppError)
 
     LONGS_EQUAL(FLASH_VPP_ERROR, result);
 }
+
+TEST(Flash, WriteFails_ProgramError)
+{
+    MockIO_Expect_Write(CommandRegister, ProgramCommand);
+    MockIO_Expect_Write(address, data);
+    MockIO_Expect_ReadThenReturn(StatusRegister, ReadyBit | ProgramErrorBit);
+    MockIO_Expect_Write(CommandRegister, Reset);
+
+    result = Flash_Write(address, data);
+
+    LONGS_EQUAL(FLASH_PROGRAM_ERROR, result);
+}
+
+TEST(Flash, WriteFails_ProtectedBlockError)
+{
+    MockIO_Expect_Write(CommandRegister, ProgramCommand);
+    MockIO_Expect_Write(address, data);
+    MockIO_Expect_ReadThenReturn(StatusRegister, ReadyBit | BlockProtectionErrorBit);
+    MockIO_Expect_Write(CommandRegister, Reset);
+
+    result = Flash_Write(address, data);
+
+    LONGS_EQUAL(FLASH_PROTECTED_BLOCK_ERROR, result);
+}
+
+TEST(Flash, WriteFails_FlashUnknownProgramError)
+{
+    MockIO_Expect_Write(CommandRegister, ProgramCommand);
+    MockIO_Expect_Write(address, data);
+    MockIO_Expect_ReadThenReturn(StatusRegister, ReadyBit |  EraseSuspendBit | EraseErrorBit | ProgramSuspendBit | ReservedBit);
+    MockIO_Expect_Write(CommandRegister, Reset);
+
+    result = Flash_Write(address, data);
+
+    LONGS_EQUAL(FLASH_UNKNOWN_PROGRAM_ERROR, result);
+}

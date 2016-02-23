@@ -56,6 +56,12 @@ int Flash_Write(ioAddress address, ioData data)
 
         if (status & VppErrorBit)
             return FLASH_VPP_ERROR;
+        else if (status & ProgramErrorBit)
+            return FLASH_PROGRAM_ERROR;
+        else if (status & BlockProtectionErrorBit)
+            return FLASH_PROTECTED_BLOCK_ERROR;
+        else
+            return FLASH_UNKNOWN_PROGRAM_ERROR;
     }
     IO_Read(address);
     return FLASH_SUCCESS;
