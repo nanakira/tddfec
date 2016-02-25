@@ -24,54 +24,34 @@
 /*-    www.renaissancesoftware.net james@renaissancesoftware.net       -*/
 /*- ------------------------------------------------------------------ -*/
 
-
-#include "Flash.h"
-#include "IO.h"
-#include "m28w160ect.h"
 #include "MicroTime.h"
+#include <stdlib.h>
+#include <memory.h>
 
-#define FLASH_WRITE_TIMEOUT_IN_MICROSECONDS 5000
+static uint32_t time = 0;
+static uint32_t increment = 1;
+static uint32_t totalDelay = 0;
 
-void Flash_Create(void)
+void FakeMicroTime_Init(uint32_t start, uint32_t incr)
 {
+    time = start;
+    increment = incr;
+    totalDelay = 0;
+}
+uint32_t MicroTime_Get(void)
+{
+    uint32_t t = time;
+    time += increment;
+    return t;
 }
 
-void Flash_Destroy(void)
+void MicroTime_Delay(uint32_t delay)
 {
+    time += delay;
+    totalDelay += delay;
 }
 
-static int writeError(int status)
+uint32_t FakeMicroTime_GetDelayDuration(void)
 {
-    IO_Write(CommandRegister, Reset);
-    if (status & VppErrorBit)
-        return FLASH_VPP_ERROR;
-    else if (status & ProgramErrorBit)
-        return FLASH_PROGRAM_ERROR;
-    else if (status & BlockProtectionErrorBit)
-        return FLASH_PROTECTED_BLOCK_ERROR;
-    else
-        return FLASH_UNKNOWN_PROGRAM_ERROR;
-}
-
-int Flash_Write(ioAddress address, ioData data)
-{
-    ioData status = 0;
-    uint32_t timestamp = MicroTime_Get();
-
-    IO_Write(CommandRegister, ProgramCommand);
-    IO_Write(address, data);
-
-    status = IO_Read(StatusRegister);
-    while ((status & ReadyBit) == 0)
-    {
-        if (MicroTime_Get() - timestamp >= FLASH_WRITE_TIMEOUT_IN_MICROSECONDS)
-            return FLASH_TIMEOUT_ERROR;
-        status = IO_Read(StatusRegister);
-    }
-
-    if (status != ReadyBit)
-        return writeError(status);
-    if (data != IO_Read(address))
-        return FLASH_READ_BACK_ERROR;
-    return FLASH_SUCCESS;
+    return totalDelay;
 }
