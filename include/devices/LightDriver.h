@@ -24,30 +24,24 @@
 /*-    www.renaissancesoftware.net james@renaissancesoftware.net       -*/
 /*- ------------------------------------------------------------------ -*/
 
+#ifndef D_LightDriver_H
+#define D_LightDriver_H
+
+typedef struct LightDriverStruct * LightDriver;
+
+typedef enum  LightDriverType
+{
+    TestLightDriver,
+    X10,
+    AcmeWireless,
+    MemoryMapped
+ } LightDriverType;
+
+typedef struct LightDriverStruct
+{
+    LightDriverType type;
+    int id;
+} LightDriverStruct;
 
 
-
-#ifndef D_common_H
-#define D_common_H
-
-#ifndef BOOL
-#define BOOL int
-#endif
-
-#ifndef TRUE
-#define TRUE 1
-#endif
-
-#ifndef FALSE
-#define FALSE 0
-#endif
-
-#ifndef NULL
-#define NULL 0
-#endif
-
-/* This is used to represent production code that cannot run in the */
-/* test environment. */
-void explodesInTestEnvironment(void *);
-
-#endif
+#endif  /* D_LightDriver_H */

@@ -25,29 +25,11 @@
 /*- ------------------------------------------------------------------ -*/
 
 
+#include "common.h"
+#include <assert.h>
 
-
-#ifndef D_common_H
-#define D_common_H
-
-#ifndef BOOL
-#define BOOL int
-#endif
-
-#ifndef TRUE
-#define TRUE 1
-#endif
-
-#ifndef FALSE
-#define FALSE 0
-#endif
-
-#ifndef NULL
-#define NULL 0
-#endif
-
-/* This is used to represent production code that cannot run in the */
-/* test environment. */
-void explodesInTestEnvironment(void *);
-
-#endif
+void explodesInTestEnvironment(void * p)
+{
+//	work around
+//	assert(p == "Explode - intercepted call that cannot be made in test environment");
+}
