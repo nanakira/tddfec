@@ -65,14 +65,14 @@ int LightControllerSpy_GetLightState(int id)
     return lights[id];
 }
 
-void LightController_On(int id)
+void LightController_TurnOn(int id)
 {
     lastId = id;
     lastState = LIGHT_ON;
     lights[id] = LIGHT_ON;
 }
 
-void LightController_Off(int id)
+void LightController_TurnOff(int id)
 {
     lastId = id;
     lastState = LIGHT_OFF;

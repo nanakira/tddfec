@@ -98,9 +98,9 @@ int LightScheduler_ScheduleTurnOff(int id, Day day, int minuteOfDay)
 static void operateLight(ScheduledLightEvent * lightEvent)
 {
     if (lightEvent->event == TURN_ON)
-        LightController_On(lightEvent->id);
+        LightController_TurnOn(lightEvent->id);
     else if (lightEvent->event == TURN_OFF)
-        LightController_Off(lightEvent->id);
+        LightController_TurnOff(lightEvent->id);
 }
 
 static int DoesLightRespondToday(Time * time, int reactionDay)
